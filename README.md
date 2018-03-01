@@ -1,3 +1,3 @@
 # Angular  Recetas
 
-Proyecto para Aprender Angular casa
+Proyecto para Aprender Angular 
