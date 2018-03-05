@@ -7,12 +7,15 @@
             <h3>{{c1.marca}}</h3>
             <p>{{c1.modelo}} {{c1.version}}</p>    
             <hr>
-            <p>Puertas: {{c1.puertas}}
+            <p><b>Puertas:</b> {{c1.puertas}} p
                 <span [class]="(c1.puertas-c2.puertas>0)?'badge positivo':'badge negativo'">{{c1.puertas-c2.puertas}}</span>
             </p>     
-            <p>Consumo: {{c1.consumo}}
-                <span [class]="(c1.consumo-c2.consumo>0)?'badge positivo':'badge negativo'">{{c1.puertas-c2.puertas}}</span>
+            <p><b>Consumo: </b>{{c1.consumo}} L/100km
+                <span [class]="(c1.consumo-c2.consumo>0)?'badge positivo':'badge negativo'">{{c1.consumo-c2.consumo |round}}</span>
             </p>    
+            <p><b>Caballos: </b> {{c1.caballos}} c.v.
+                <span [class]="(c1.caballos-c2.caballos>0)?'badge positivo':'badge negativo'">{{c1.caballos-c2.caballos}}</span>
+            </p>  
         </div>
     </div>
 </div>

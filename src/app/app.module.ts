@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //Nuestro Modylo para routing
 import {AppRouter} from './app.route';
+import { RoundPipe } from './pipes/round.pipe';
 
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -26,6 +27,7 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
     ConcesionarioComponent,
     CocheComponent,
     ListadoComponent,
+    RoundPipe,
     
   ],
   imports: [

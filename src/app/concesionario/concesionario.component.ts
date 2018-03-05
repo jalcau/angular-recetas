@@ -15,8 +15,8 @@ export class ConcesionarioComponent implements OnInit {
 //inicializar los atributos
   constructor(public cochesService:CochesService) { 
  
-    this.coche1 = new Coche('coche1','',4);
-    this.coche2 = new Coche('coche2','',4);
+    this.coche1 = new Coche('coche1','',4,'','',5,6);
+    this.coche2 = new Coche('coche2','',4,'','',5,6);
   console.log("ConcesionarioComponent Constructor");
   this.stocks = new Array<Coche>();
   //estos datos nos lo provee el service
