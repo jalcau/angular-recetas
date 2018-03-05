@@ -11,7 +11,11 @@ export class ListadoComponent implements OnInit {
   @Input('stockParametro') stocks : Array<Coche>;
   //los parametros de salida se realizan a traves de Eventos
   @Output() eventoEmitir = new EventEmitter();
- 
+
+ //Criterio dek buscador
+  searchText:string;
+
+  
   constructor() { }
 
   ngOnInit() {

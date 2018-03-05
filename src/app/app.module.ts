@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms'
 //Nuestro Modylo para routing
 import {AppRouter} from './app.route';
 import { RoundPipe } from './pipes/round.pipe';
+import {FilterPipe} from './pipes/flter.pipe';
 
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -14,6 +16,8 @@ import { ConcesionarioComponent } from './concesionario/concesionario.component'
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { CochesService } from './providers/coches.service';
 import { ListadoComponent } from './concesionario/listado/listado.component';
+import { RecetarioComponent } from './recetario/recetario.component';
+import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
 
 
 @NgModule({
@@ -27,12 +31,14 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
     ConcesionarioComponent,
     CocheComponent,
     ListadoComponent,
-    RoundPipe,
+    RoundPipe,  
+    FilterPipe, RecetarioComponent, RecetadetalleComponent
     
   ],
   imports: [
     BrowserModule,
-    AppRouter
+    AppRouter,
+    FormsModule
   ],
   providers: [CochesService],
   bootstrap: [AppComponent]
