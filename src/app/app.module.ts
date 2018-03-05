@@ -18,6 +18,7 @@ import { CochesService } from './providers/coches.service';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
+import { ListaComponent } from './recetario/lista/lista.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.
     CocheComponent,
     ListadoComponent,
     RoundPipe,  
-    FilterPipe, RecetarioComponent, RecetadetalleComponent
+    FilterPipe, RecetarioComponent, RecetadetalleComponent, ListaComponent
     
   ],
   imports: [

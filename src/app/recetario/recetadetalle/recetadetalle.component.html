@@ -1,3 +1,33 @@
-<p>
-  recetadetalle works!
-</p>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img class="logo" *ngIf="isGlutenFree" src="assets/imgs/gluten_icon.png" alt="Con gluten" >
+        <img class="logo" *ngIf="!isGlutenFree"src="assets/imgs/gluten_free_icon.png" alt="Sin GLuten">
+  
+        <img src="{{receta1.imagen}}" alt="tortilla">
+        <div class="caption">
+          <h3>{{receta1.nombre | uppercase}}</h3>
+       
+          <p>{{receta1.descripcion | slice:0:100}}...</p>
+          <p>
+            <span class="cocinero">{{receta1.cocinero}}</span>
+            <span class="label label-primary" (click)="sumarLike()">Likes {{receta1.likes}}</span> </p>
+          
+          <section class="ingredientes">
+            
+          <h4 (click)="showIngredientes()">Ingredientes <span class="badge">{{receta1.ingredientes.length}}</span>
+            <span class="glyphicon {{glyphicon}}" aria-hidden="true" ></span></h4>
+          
+          <ol *ngIf="show">
+            <li *ngFor="let ingrediente of receta.ingredientes">
+                {{ingrediente}}
+            </li>
+           
+          </ol>
+        </section>
+       
+        </div>
+      </div>
+    </div>
+  </div>

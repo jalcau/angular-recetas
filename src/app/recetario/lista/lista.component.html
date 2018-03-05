@@ -1,0 +1,6 @@
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let detalle of stocks">
+     <a [class]="(detalle == r1 || detalle == r2)?'active':''" (click)="seleccionar($event, detalle)">{{detalle.nombre}}</a>
+  </li>    
+</ul>

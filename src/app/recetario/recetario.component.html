@@ -1,3 +1,42 @@
-<p>
-  recetario works!
-</p>
+<p>Ejemplo de un Componente Padre <b>RecetarioComponent</b> e Hijo <b>DetalleComponent</b>. Aprender a pasar parametros de una a otro @input @output</p>
+
+
+<nav aria-label="Catalogo de Recetas">
+    <ul class="pagination">
+        <li *ngFor="let detalle of stocks" [class.active]="receta1 == receta2">
+            <a>{{detalle.nombre}} </a>
+        </li>    
+    </ul>
+</nav>
+
+<div class="row">
+
+    <div class="col-md-2">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Catalogo Recetas</h3>
+                </div>
+                <div class="panel-body">
+                   
+                    <!-- llamda componente Hijo -->
+                    <app-lista [stockParametro]="stocks"
+                    (eventoEmitir)="recibirDetalle($event)"></app-lista> 
+                   
+                </div>
+        </div>
+    </div>  
+    <div class="col-md-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Comparador</h3>
+            </div>
+            <div class="panel-body">
+                
+                <!-- llamda componente Hijo -->
+                <app-recetadetalle [r1]="receta1" [r2]="receta2"></app-recetadetalle>
+                <app-recetadetalle [r1]="receta2" [r2]="receta1"></app-recetadetalle>
+                
+            </div>
+        </div>
+    </div>    
+    </div>
