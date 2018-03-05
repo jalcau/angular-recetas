@@ -9,17 +9,15 @@ import {Coche} from '../../model/coche';
 })
 export class CocheComponent implements OnInit {
 
-  @Input('cocheParametro') coche : Coche;
+  @Input('c1') c1 : Coche; // coche para mostrar
+  @Input('c2') c2 : Coche; // coche para comparar
 
 
-  @Output() cocheSeleccionado= new EventEmitter();
+  
   constructor() { }
 
   ngOnInit() {
+    console.log('CocheComponent constructor');
   }
-  seleccionar($event){
-    this.cocheSeleccionado.emit({coche: this.coche});
-    console.log("Emitimos evento al ComponentPadre %o",this.coche);
 
-  }
 }
