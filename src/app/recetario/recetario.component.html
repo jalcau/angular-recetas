@@ -3,7 +3,7 @@
 
 <nav aria-label="Catalogo de Recetas">
     <ul class="pagination">
-        <li *ngFor="let detalle of stocks" [class.active]="detalle == receta1">
+        <li *ngFor="let detalle of stocks" [class.active]="detalle == recetaSelec">
             <a>{{detalle.nombre}} </a>
         </li>    
     </ul>

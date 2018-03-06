@@ -1,31 +1,33 @@
+<div class="col-sm-6 col-md-12" >
 
+  <div class="thumbnail">
+      <img class="logo" *ngIf="r1.isGlutenFree" src='C:\Users\Jorge\angular\angular-recetas\src\assets\imgs' alt="Con gluten" >
+      <img class="logo" *ngIf="!r1.isGlutenFree"src="\assets\img\gluten_icon.png" alt="Sin GLuten">
 
-    <div class="col-sm-12 col-md-12"
-    (click)="seleccionar($event)">
-      <div class="thumbnail">
-        <img class="logo" *ngIf="isGlutenFree" src="assets/imgs/gluten_icon.png" alt="Con gluten" >
-        <img class="logo" *ngIf="!isGlutenFree"src="assets/imgs/gluten_free_icon.png" alt="Sin GLuten">
-  
-        <img src="{{r1.foto}}" alt="tortilla">
-        <div class="caption">
-          <h3>{{r1.nombre | uppercase}}</h3>
-       
-          <p>{{r1.descripcion | slice:0:100}}...</p>
-          <p>
-            <span class="cocinero">{{r1.cocinero}}</span>
-            <span class="label label-primary" (click)="sumarLike()">Likes {{r1.likes}}</span></p>
-          
-          <section class="ingredientes">
-        
+     <img src="{{r1.imagen}}" alt="">
+     <div class="caption">
+         <h3>{{r1.nombre}}</h3>
+              <p>{{r1.descripcion}}</p>
+              <section class="ingredientes">
+                  <h4 (click)="showIngredientes()">
+                    <span class="badge">{{r1.ingredientes.length}}</span>  Ingredientes
+                    <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>  
+                  </h4>
+                  <ol *ngIf="show" class="lista">
+                    <li *ngFor="let ingred of r1.ingredientes">
+                      {{ingred}}
+                    </li>
             
-          <ol *ngIf="show">
-            <li *ngFor="let ingrediente of receta.ingredientes">
-                {{ingrediente}}
-            </li>
+                  </ol>
+                </section>
+              <hr>
+             
+                  
+              
+              <p>Likes: {{r1.likes}}</p>
+              
+          
            
-          </ol>
-        </section>
-       
-        </div>
-      </div>
-    </div>
+     </div>
+  </div>
+  </div>

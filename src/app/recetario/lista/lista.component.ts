@@ -17,9 +17,9 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
   }
 
-  seleccionar( receta : Detalle ){
+  seleccionar(event, receta : Detalle ){
     console.log('ListadoComponent Emitimos evento al ComponentePadre %o', receta );
-    this.eventoEmitir.emit(  //event con 2 parametros
+    this.eventoEmitir.emit(  
                               {
                                  "detalle": receta ,
                                  

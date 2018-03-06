@@ -17,7 +17,7 @@ export class RecetarioComponent implements OnInit {
 
    
 
-    this.receta1= new Detalle("Receta1",undefined);
+   // this.receta1= new Detalle("Receta1",undefined);
     //this.receta2= new Detalle("Receta2",undefined);
     this.stocks = new Array<Detalle>();
     //this.stocks.push(new Detalle('Marmitako','assets/imgs/marmitako.jpg'));
