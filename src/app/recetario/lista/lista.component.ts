@@ -7,6 +7,7 @@ import { Detalle } from '../../model/detalle';
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
+  recetaSelec : Detalle;
   @Input('stockParametro') stocks : Array<Detalle>;
   //los parametros de salida se realizan a traves de Eventos
   @Output() eventoEmitir = new EventEmitter();
@@ -16,14 +17,16 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
   }
 
-  seleccionar( event, receta : Detalle ){
+  seleccionar( receta : Detalle ){
     console.log('ListadoComponent Emitimos evento al ComponentePadre %o', receta );
     this.eventoEmitir.emit(  //event con 2 parametros
                               {
-                                 "coche": receta ,
-                                 "otroParametro" : 2018
+                                 "detalle": receta ,
+                                 
                               }
                           );
   }
+
+ 
 
 }

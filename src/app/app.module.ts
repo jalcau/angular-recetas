@@ -15,6 +15,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { CochesService } from './providers/coches.service';
+import { RecetasService } from './providers/receta.service';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
@@ -41,7 +42,7 @@ import { ListaComponent } from './recetario/lista/lista.component';
     AppRouter,
     FormsModule
   ],
-  providers: [CochesService],
+  providers: [CochesService,RecetasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

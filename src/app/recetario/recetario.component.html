@@ -3,7 +3,7 @@
 
 <nav aria-label="Catalogo de Recetas">
     <ul class="pagination">
-        <li *ngFor="let detalle of stocks" [class.active]="receta1 == receta2">
+        <li *ngFor="let detalle of stocks" [class.active]="detalle == receta1">
             <a>{{detalle.nombre}} </a>
         </li>    
     </ul>
@@ -28,13 +28,13 @@
     <div class="col-md-10">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Comparador</h3>
+                <h3 class="panel-title">Detalle</h3>
             </div>
             <div class="panel-body">
                 
                 <!-- llamda componente Hijo -->
-                <app-recetadetalle [r1]="receta1" [r2]="receta2"></app-recetadetalle>
-                <app-recetadetalle [r1]="receta2" [r2]="receta1"></app-recetadetalle>
+                <app-recetadetalle [r1]="recetaSelec"></app-recetadetalle>
+               
                 
             </div>
         </div>

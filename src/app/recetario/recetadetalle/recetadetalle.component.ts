@@ -9,7 +9,7 @@ import {Detalle} from '../../model/detalle';
 export class RecetadetalleComponent implements OnInit {
 
   @Input('r1') r1 : Detalle; // receta para mostrar
-  @Input('r2') r2 : Detalle; // receta para comparar
+  //@Input('r2') r2 : Detalle; // receta para comparar
 
   constructor() { }
 
