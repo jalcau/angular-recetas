@@ -19,7 +19,13 @@ export class RecetasService {
     let receta;
 
     jsonData.forEach( el => {
-       receta = new Detalle(el.nombre,el.cocinero,el.imagen,el.descripcion);
+       receta = new Detalle(el.nombre,el.cocinero);
+       receta.ingredientes = el.ingredientes;
+       receta.imagen = el.imagen;
+       receta.likes = el.likes;
+       receta.cocinero = el.cocinero;
+       receta.descripcion = el.descripcion;
+       receta.isGlutenFree = el.isGlutenFree;
        
        el.ingredientes.forEach( ing => {
           receta.addIngredientes(ing);
@@ -29,6 +35,10 @@ export class RecetasService {
     });
 
     return this.recetas;
+  }
+//Crear Nueva Receta
+  crear(receta: Detalle):void{
+    this.recetas.unshift(receta);
   }
 
 }

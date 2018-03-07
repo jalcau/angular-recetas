@@ -1,0 +1,73 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalReceta">
+  Cocinar Nueva Receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+      </div>
+      <div class="modal-body">
+      
+        <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate >
+          <div class="row">
+              <div class="col-md-6 col-sm-6">
+          <div class="form-group form-inline">
+            <label for="nombre">Nombre: </label>
+          <input  formControlName="nombre" placeholder="Nombre">
+            <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched"class="text-danger">Obligatorio, mínimo 2 letras</p>
+           </div>
+
+          <div class="form-group form-inline">
+              <label for="cocinero">Cocinero: </label>
+            <input  formControlName="cocinero" placeholder="Cocinero">
+              <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched"
+            class="text-danger">Obligatorio, mínimo 5 letras</p>
+            </div>
+            <div class="form-group form-inline">
+                <label for="cocinero">Gluten: </label>
+  
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Si
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio">No
+              </label>
+            </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+            <div class="form-group form-inline">
+                
+                <img src="\assets\imgs\receta_default.jpg" class="imagen">
+                
+              
+               </div>
+              
+               <div class="form-group form-inline">
+                  <label for="imagen">imagen: </label>
+                <input  formControlName="imagen" placeholder="imagen">
+              </div>
+                
+                </div>
+                
+                  
+            
+
+            </div>
+            <div class="form-group form-inline">
+                <label for="descripcion">Descripcion: </label>
+                <textarea class="form-control"cols="75" rows="5" id="comment" formControlName="descripcion"></textarea>
+              </div>
+          <input type="submit" value="Crear" class="btn btn-success btn-block"[disabled]="!formulario.valid">
+
+        
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>

@@ -8,7 +8,19 @@
         </li>    
     </ul>
 </nav>
+<div class="container">
+        <!--Formulario con ventana modal-->
+        <app-formulario></app-formulario>
 
+
+
+    <!-- Buscador de recetas -->
+    <div class="input-group" id="buscadorRecetas">   
+      <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText">
+      <span class="input-group-addon glyphicon glyphicon-search"></span>
+    </div>
+
+    <br>
 <div class="row">
 
     <div class="col-md-2">
@@ -39,4 +51,5 @@
             </div>
         </div>
     </div>    
+    </div>
     </div>

@@ -9,17 +9,20 @@ import { Detalle } from '../../model/detalle';
 export class ListaComponent implements OnInit {
   recetaSelec : Detalle;
   @Input('stockParametro') stocks : Array<Detalle>;
+  glutenFilter : boolean;
   //los parametros de salida se realizan a traves de Eventos
   @Output() eventoEmitir = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    this.glutenFilter = false;
+   }
 
   ngOnInit() {
   }
 
-  seleccionar(event, receta : Detalle ){
+  seleccionar( event, receta : Detalle ){
     console.log('ListadoComponent Emitimos evento al ComponentePadre %o', receta );
-    this.eventoEmitir.emit(  
+    this.eventoEmitir.emit(  //event con 2 parametros
                               {
                                  "detalle": receta ,
                                  

@@ -29,7 +29,7 @@ export class RecetarioComponent implements OnInit {
   ngOnInit() {
     this.stocks = this.recetasService.getAll();
 
-    this.recetaSelec = this.stocks[0] || new Detalle('Anonimo');
+    this.recetaSelec = this.stocks[0] || new Detalle('Anonimo','');
   }
 
   recibirDetalle(event){
