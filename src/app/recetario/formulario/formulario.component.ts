@@ -8,7 +8,7 @@ import { RecetasService } from '../../providers/receta.service';
  */
 import * as $ from 'jquery'
 import { Detalle } from '../../model/detalle';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -19,10 +19,12 @@ export class FormularioComponent implements OnInit {
 
 
   formulario: FormGroup;
+  ingredientes : FormArray;
 
   constructor(private fb:FormBuilder, private recetaService: RecetasService) {
-    console.log("FormularioComponent consatructor");
+    console.log("FormularioComponent constructor");
     this.crearFormulario();
+    this.ingredientes = this.formulario.get('ingredientes') as FormArray;
    }
 
   ngOnInit() {
@@ -36,11 +38,29 @@ export class FormularioComponent implements OnInit {
       //FormControl(input) =>['value',[Validaciones]]
       nombre: ['',[Validators.required, Validators.minLength(2)]],
       cocinero: ['',[Validators.minLength(5)]],
-      imagen: ['assets/imgs/receta_default.jpg'],
-      descripcion:['',[Validators.minLength(25)]]
+      imagen: ['assets/imgs/receta_default.jpg',Validators.required],
+      descripcion:['',[Validators.minLength(100)]],
+      gluten:["true",Validators.required],
+      ingredientes : this.fb.array([ this.createIngredienteFormGroup() ])
     });
 
   }
+  createIngredienteFormGroup(): FormGroup {
+    console.log('FormularioComponent createIngredienteFormGroup');
+    return this.fb.group({
+      nombre: ['', [Validators.required]]
+    });
+  }
+  clickOtroIngrediente(){
+    console.log('FormularioComponent clickOtroIngrediente');    
+    this.ingredientes.push( this.createIngredienteFormGroup() );
+  }
+
+  clickEliminarIngrediente( index ){
+    console.log('FormularioComponent clickEliminarIngrediente');    
+    this.ingredientes.removeAt(index);
+  }
+
 
   sumitar(): void{
     console.log("FormularioComponent onSubmit");
@@ -49,9 +69,14 @@ export class FormularioComponent implements OnInit {
   let cocinero= this.formulario.value.cocinero;
   let imagen= this.formulario.value.imagen;
   let descripcion=this.formulario.value.descripcion;
-  let receta= new Detalle(nombre,cocinero,'assets/imgs/receta_default.jpg',descripcion)
+  let isGlutenFree = (this.formulario.value.gluten === "true")?false:true;
+  let receta= new Detalle(nombre,cocinero,imagen,descripcion,0,isGlutenFree)
   this.recetaService.crear(receta);
+  this.formulario.value.ingredientes.map(element => {
+    receta.addIngredientes( element.nombre );
+  });
 
+  //this.reset("")
 
 //cerrar modal
 //$("#modalReceta")

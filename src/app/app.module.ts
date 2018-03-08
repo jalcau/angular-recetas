@@ -21,6 +21,7 @@ import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
 import { ListaComponent } from './recetario/lista/lista.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { FormularioCocheComponent } from './concesionario/formulario-coche/formulario-coche.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
     CocheComponent,
     ListadoComponent,
     RoundPipe,  
-    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent
+    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent, FormularioCocheComponent
     
   ],
   imports: [

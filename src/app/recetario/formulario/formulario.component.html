@@ -32,17 +32,28 @@
                 <label for="cocinero">Gluten: </label>
   
             <label class="radio-inline">
-                <input type="radio" name="optradio">Si
+                <input type="radio" name="gluten"formControlName="gluten" value="true"> Si
               </label>
               <label class="radio-inline">
-                <input type="radio" name="optradio">No
+                <input type="radio" name="gluten" formControlName="gluten" value="false">No
               </label>
+            </div>
+            <label for="">Ingredientes </label>
+            <a (click)="clickOtroIngrediente()">Añadir Ingrediente</a>                
+            <div formArrayName="ingredientes">                                      
+                <div *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                                       
+                    <div [formGroupName]="i">
+                        <input formControlName="nombre" placeholder="Nuevo Ingrediente" class="ingrediente-input">                        
+                        <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                    </div>                   
+                </div>
+                <p class="text-danger" *ngIf="formulario.controls.ingredientes.invalid && formulario.controls.ingredientes.dirty">*Escribe el nombre del ingrediente</p>                                        
             </div>
             </div>
             <div class="col-md-6 col-sm-6">
             <div class="form-group form-inline">
                 
-                <img src="\assets\imgs\receta_default.jpg" class="imagen">
+                <img [src]="formulario.controls.imagen.value" class="imagen">
                 
               
                </div>
@@ -50,7 +61,10 @@
                <div class="form-group form-inline">
                   <label for="imagen">imagen: </label>
                 <input  formControlName="imagen" placeholder="imagen">
+                <p *ngIf="formulario.controls.imagen.invalid && formulario.controls.imagen.touched"
+                class="text-danger">Obligatorio introducir url</p>
               </div>
+              
                 
                 </div>
                 
