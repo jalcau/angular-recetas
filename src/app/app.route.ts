@@ -7,16 +7,20 @@ import{HomeComponent} from './home/home.component';
 import{UsuarioComponent} from './usuario/usuario.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import {RecetarioComponent} from './recetario/recetario.component';
-
+import {PlantillaComponent} from './plantilla/plantilla.component';
+import {TodosComponent} from './todos/todos.component';
  const appRoutes: Routes = [
     { path: '', component: HomeComponent},
     { path:'home',component: HomeComponent},
     { path:'usuario', component: UsuarioComponent},
     { path:'concesionario', component: ConcesionarioComponent},
     { path:'recetario', component:RecetarioComponent},
+    { path:'plantilla',component:PlantillaComponent},
+    { path:'todos', component:TodosComponent},
     { path: 'receta', component: RecetaComponent },
     { path: 'propiedades',component: PropiedadesComponent },
     { path: '**', component: Page04Component },
+    
 
    
    

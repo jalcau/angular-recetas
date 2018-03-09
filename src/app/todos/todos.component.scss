@@ -1,0 +1,37 @@
+#todos{
+    
+        background-image: url("assets/imgs/img_parallax.jpg");
+
+
+        height: 100%;
+    
+    
+    
+    
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 80vw;
+        display: flex;
+}
+
+section{
+    padding:20px;
+    background-color: rgba(158, 145, 145, 0.411);
+    margin:auto; 
+    width: 50vw;
+    h2{
+        text-align: center;
+        margin-bottom:30px;;
+
+    }
+    ul{
+        list-style: none;
+        font-size: 1.5em;
+    }
+ 
+
+    
+}
+
+

@@ -22,8 +22,11 @@ import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.
 import { ListaComponent } from './recetario/lista/lista.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
 import { FormularioCocheComponent } from './concesionario/formulario-coche/formulario-coche.component';
+import { PlantillaComponent } from './plantilla/plantilla.component';
+import { TodosComponent } from './todos/todos.component';
 
-
+import {HttpClientModule,HttpClient} from  '@angular/common/http';
+import {TodosService} from './providers/todos.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,16 +39,18 @@ import { FormularioCocheComponent } from './concesionario/formulario-coche/formu
     CocheComponent,
     ListadoComponent,
     RoundPipe,  
-    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent, FormularioCocheComponent
+    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent, FormularioCocheComponent, PlantillaComponent, TodosComponent
     
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRouter,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
-  providers: [CochesService,RecetasService],
+  providers: [HttpClientModule,CochesService,RecetasService, TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

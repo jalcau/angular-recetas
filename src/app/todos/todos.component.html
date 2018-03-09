@@ -1,0 +1,16 @@
+
+<div id="todos">
+
+  <section>
+    <h2>Lista Tareas</h2>
+    
+    <ul>
+      <li *ngFor="let todo of todos">
+          <input type="checkbox" [checked]="todo.completed">{{todo.title}} <span class="
+          glyphicon glyphicon-remove-circle" (click)="eliminar($todos)"></span>
+        
+      </li>      
+    </ul>
+  </section>  
+
+</div>
