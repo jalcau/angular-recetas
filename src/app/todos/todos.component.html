@@ -3,11 +3,13 @@
 
   <section>
     <h2>Lista Tareas</h2>
+    <input type="text" [(ngModel)]="nuevaTarea" placeholder="Nueva Tarea">
+    <span (click)="new()" class="glyphicon glyphicon-plus"></span>  
     
     <ul>
       <li *ngFor="let todo of todos">
           <input type="checkbox" [checked]="todo.completed">{{todo.title}} <span class="
-          glyphicon glyphicon-remove-circle" (click)="eliminar($todos)"></span>
+          glyphicon glyphicon-remove-circle" (click)="eliminar(todo)"></span>
         
       </li>      
     </ul>

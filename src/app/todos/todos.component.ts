@@ -10,6 +10,8 @@ import { Todo } from '../model/todo';
 export class TodosComponent implements OnInit {
 
   todos : Todo[];
+  nuevaTarea : string;
+
 
   constructor( public todosService:TodosService ) {
       console.log('TodosComponent constructor');
@@ -18,6 +20,13 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     console.log('TodosComponent ngOnInit');
+    this.cargarTareas();
+
+  }
+  //ngOnInit
+  cargarTareas(){
+    console.log('TodosComponent cargarTareas');
+    this.todos = [];
     this.todosService.getTodos().subscribe(
       resultado => {
         console.debug('peticion correcta %o', resultado);
@@ -46,21 +55,41 @@ export class TodosComponent implements OnInit {
     });
 
   }
-  eliminar($todo){
-  let i; 
-  for(i=0;i<this.todos.length;i++)
-  {
-    if(this.todos[i].id==$todo.id){
-      this.todos.splice(i, 1);
-    }
+  eliminar(todo:Todo){
+    console.log('TodosComponent delete %o', todo );
 
+    this.todos.forEach( (t, index) =>{
+      if ( t.id === todo.id ){
+        this.todos.splice(index,1);
+        return false; //break        
+      }
+    });
+  }
+  new(){
+    console.log('TodosComponent new ');
+    let todo = new Todo(this.nuevaTarea);
+    
+   // let todo = new Todo(this.nuevaTarea);
+    this.todos.unshift(todo);
+    this.nuevaTarea = "";
+    
+    this.todosService.post(todo).subscribe(
+      result=>{
+        console.log('TodosComponent new %o', result);
+        this.cargarTareas();
+      },
+      error=>{
+        alert('No de pudo Crear Nueva Tarea');
+        console.error(error);
+      }
+    );
+  }
   }
  
-    
-      }
+
+      
   
   
   
 
 
-}
