@@ -1,12 +1,12 @@
 <div class="col-sm-6 col-md-12" >
 
   <div class="thumbnail">
-      <img class="logo" *ngIf="r1.isGlutenFree" src="\assets\imgs\gluten_free_icon.png" alt="Con gluten" >
-      <img class="logo" *ngIf="!r1.isGlutenFree"src="\assets\imgs\gluten_icon.png" alt="Sin GLuten">
+      <img class="logo" *ngIf="r1.isGlutenFree" src="\assets\imgs\gluten_icon.png" alt="Con gluten">
+      <img class="logo" *ngIf="!r1.isGlutenFree"src="\assets\img\gluten_icon.png" alt="Sin GLuten">
 
      <img src="{{r1.imagen}}" alt="">
      <div class="caption">
-         <h3>{{r1.nombre}} {{r1.cocinero}}</h3>
+         <h3>{{r1.nombre}}</h3>
               <p>{{r1.descripcion}}</p>
               <section class="ingredientes">
                   <h4 (click)="showIngredientes()">
