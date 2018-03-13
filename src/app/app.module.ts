@@ -27,6 +27,7 @@ import { TodosComponent } from './todos/todos.component';
 
 import {HttpClientModule,HttpClient} from  '@angular/common/http';
 import {TodosService} from './providers/todos.service';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import {TodosService} from './providers/todos.service';
     CocheComponent,
     ListadoComponent,
     RoundPipe,  
-    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent, FormularioCocheComponent, PlantillaComponent, TodosComponent
+    FilterPipe,FilterRecetas, RecetarioComponent, RecetadetalleComponent, ListaComponent, FormularioComponent, FormularioCocheComponent, PlantillaComponent, TodosComponent, FormBasicoComponent
     
   ],
   imports: [
